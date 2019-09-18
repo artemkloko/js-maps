@@ -5,7 +5,7 @@
  * @typeparam KeyType The type of elements to be stored as keys.
  * @typeparam ValueType The type of elements to be stored as values.
  */
-declare class UnsortedMap<KeyType, ValueType> {
+export declare class UnsortedMap<KeyType, ValueType> {
     /**
      * Storage of the elements used for keys.
      */
@@ -90,7 +90,7 @@ declare class UnsortedMap<KeyType, ValueType> {
  * @typeparam ValueType The type of elements to be stored as values. Should
  * extend `number` type.
  */
-declare class SortedMap<KeyType, ValueType extends number> extends UnsortedMap<KeyType, ValueType> {
+export declare class SortedMap<KeyType, ValueType extends number> extends UnsortedMap<KeyType, ValueType> {
     /**
      * @param keys An array of elements to be used as initial keys.
      * @param values An array of elements to be used as initial values.
@@ -106,22 +106,4 @@ declare class SortedMap<KeyType, ValueType extends number> extends UnsortedMap<K
      */
     set(setKey: KeyType, setValue: ValueType): this;
 }
-/**
- * The `UnsortedMapContructor` is used to instantiate an object that extends the
- * `UnsortedMap` class.
- *
- * @typeparam KeyType The type of elements to be stored as keys in the new
- * object.
- * @typeparam ValueType The type of elements to be stored as values in the new
- * object.
- * @typeparam NewClassType The type of the class that should be used to create
- * the new object. Should extend `UnsortedMap` class.
- */
-declare type UnsortedMapContructor<KeyType, ValueType, NewClassType extends UnsortedMap<KeyType, ValueType>> = {
-    /**
-     * @param keys An array of elements to be used as initial keys.
-     * @param values An array of elements to be used as initial values.
-     */
-    new (keys?: KeyType[], values?: ValueType[]): NewClassType;
-};
 //# sourceMappingURL=js-maps.d.ts.map

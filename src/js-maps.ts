@@ -5,7 +5,7 @@
  * @typeparam KeyType The type of elements to be stored as keys.
  * @typeparam ValueType The type of elements to be stored as values.
  */
-class UnsortedMap<KeyType, ValueType> {
+export class UnsortedMap<KeyType, ValueType> {
 
   /**
    * Storage of the elements used for keys.
@@ -134,7 +134,7 @@ class UnsortedMap<KeyType, ValueType> {
  * @typeparam ValueType The type of elements to be stored as values. Should 
  * extend `number` type.
  */
-class SortedMap<KeyType, ValueType extends number> extends UnsortedMap<
+export class SortedMap<KeyType, ValueType extends number> extends UnsortedMap<
   KeyType,
   ValueType
 > {

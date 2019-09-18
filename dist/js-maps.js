@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * The `UnsortedMap` object holds key-value pairs and remembers the original
  * insertion order of the keys.
@@ -84,6 +85,7 @@ class UnsortedMap {
         return this;
     }
 }
+exports.UnsortedMap = UnsortedMap;
 /**
  * The `SortedMap` object holds key-value pairs and automatically reorders them
  * by values in descending order.
@@ -146,4 +148,5 @@ class SortedMap extends UnsortedMap {
         return this;
     }
 }
+exports.SortedMap = SortedMap;
 //# sourceMappingURL=js-maps.js.map
