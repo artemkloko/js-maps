@@ -71,7 +71,7 @@ export declare class UnsortedMap<KeyType, ValueType> {
      * @param setKey The key of the element to add or update to the object.
      * @returns The object itself.
      */
-    upsert(setKey: KeyType, cb: 
+    upsert(setKey: KeyType, callback: 
     /**
      * Function that produces a new element for the specified key in the calling
      * object.

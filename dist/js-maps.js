@@ -79,9 +79,9 @@ class UnsortedMap {
      * @param setKey The key of the element to add or update to the object.
      * @returns The object itself.
      */
-    upsert(setKey, cb) {
+    upsert(setKey, callback) {
         const value = this.get(setKey);
-        this.set(setKey, cb(value));
+        this.set(setKey, callback(value));
         return this;
     }
 }

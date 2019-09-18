@@ -11,6 +11,7 @@ before_install:
   - npx yarn install
 script:
   - npx yarn typedoc
+  - touch ./docs/.nojekyll
 deploy:
   provider: pages
   local-dir: ./docs

@@ -1,12 +1,11 @@
 /**
  * The `UnsortedMap` object holds key-value pairs and remembers the original
  * insertion order of the keys.
- * 
+ *
  * @typeparam KeyType The type of elements to be stored as keys.
  * @typeparam ValueType The type of elements to be stored as values.
  */
 export class UnsortedMap<KeyType, ValueType> {
-
   /**
    * Storage of the elements used for keys.
    */
@@ -28,9 +27,9 @@ export class UnsortedMap<KeyType, ValueType> {
 
   /**
    * The `get()` method returns a specified element from the calling object.
-   * 
+   *
    * @param key The key of the element to return from the calling object.
-   * @returns The element associated with the specified key, or `undefined` if 
+   * @returns The element associated with the specified key, or `undefined` if
    * the key can't be found in the calling object.
    */
   get(key: KeyType): ValueType | undefined {
@@ -62,7 +61,7 @@ export class UnsortedMap<KeyType, ValueType> {
    * The `has()` method returns a boolean indicating whether an element with the
    * specified key exists or not.
    * @param key The key of the element to test for presence in the object.
-   * @returns `true` if an element with the specified key exists in the object; 
+   * @returns `true` if an element with the specified key exists in the object;
    * otherwise `false`.
    */
   has(key: KeyType) {
@@ -70,16 +69,16 @@ export class UnsortedMap<KeyType, ValueType> {
   }
 
   /**
-   * The `map()` method creates a new object of the same class with the results 
+   * The `map()` method creates a new object of the same class with the results
    * of calling a provided function on every element in the calling object.
    *
-   * @returns A new object of the same class with each element being the result 
+   * @returns A new object of the same class with each element being the result
    * of the callback function.
    */
   map(
     callback: 
     /**
-     * Function that produces an element of the new object for each of the keys 
+     * Function that produces an element of the new object for each of the keys
      * in the calling object.
      *
      * @param key The key of the current element being processed in the object.
@@ -99,9 +98,9 @@ export class UnsortedMap<KeyType, ValueType> {
 
   /**
    * The `upsert()` method adds or updates an element with a specified key and a
-   * value with the results of calling a provided function on element that 
-   * is currently assigned to the specified key in the calling object. If the 
-   * specified key does not exist in the calling object, the provided function 
+   * value with the results of calling a provided function on element that
+   * is currently assigned to the specified key in the calling object. If the
+   * specified key does not exist in the calling object, the provided function
    * with be called with `undefined` as current element.
    *
    * @param setKey The key of the element to add or update to the object.
@@ -109,36 +108,35 @@ export class UnsortedMap<KeyType, ValueType> {
    */
   upsert(
     setKey: KeyType,
-    cb: 
+    callback: 
     /**
-     * Function that produces a new element for the specified key in the calling 
+     * Function that produces a new element for the specified key in the calling
      * object.
-     * 
-     * @param currentValue The current element that is assigned to the specified 
+     *
+     * @param currentValue The current element that is assigned to the specified
      * key. `undefined` if the key does not exist in the calling object.
      * @returns The new element to set for the specified key.
      */
     (currentValue: ValueType | undefined) => ValueType
   ) {
     const value = this.get(setKey);
-    this.set(setKey, cb(value));
+    this.set(setKey, callback(value));
     return this;
   }
 }
 
 /**
- * The `SortedMap` object holds key-value pairs and automatically reorders them 
+ * The `SortedMap` object holds key-value pairs and automatically reorders them
  * by values in descending order.
- * 
+ *
  * @typeparam KeyType The type of elements to be stored as keys.
- * @typeparam ValueType The type of elements to be stored as values. Should 
+ * @typeparam ValueType The type of elements to be stored as values. Should
  * extend `number` type.
  */
 export class SortedMap<KeyType, ValueType extends number> extends UnsortedMap<
   KeyType,
   ValueType
 > {
-
   /**
    * @param keys An array of elements to be used as initial keys.
    * @param values An array of elements to be used as initial values.
@@ -194,14 +192,14 @@ export class SortedMap<KeyType, ValueType extends number> extends UnsortedMap<
 }
 
 /**
- * The `UnsortedMapContructor` is used to instantiate an object that extends the 
+ * The `UnsortedMapContructor` is used to instantiate an object that extends the
  * `UnsortedMap` class.
- * 
- * @typeparam KeyType The type of elements to be stored as keys in the new 
+ *
+ * @typeparam KeyType The type of elements to be stored as keys in the new
  * object.
- * @typeparam ValueType The type of elements to be stored as values in the new 
+ * @typeparam ValueType The type of elements to be stored as values in the new
  * object.
- * @typeparam NewClassType The type of the class that should be used to create 
+ * @typeparam NewClassType The type of the class that should be used to create
  * the new object. Should extend `UnsortedMap` class.
  */
 type UnsortedMapContructor<
@@ -209,7 +207,6 @@ type UnsortedMapContructor<
   ValueType,
   NewClassType extends UnsortedMap<KeyType, ValueType>
 > = {
-
   /**
    * @param keys An array of elements to be used as initial keys.
    * @param values An array of elements to be used as initial values.
